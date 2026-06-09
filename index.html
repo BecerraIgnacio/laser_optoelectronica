@@ -170,8 +170,8 @@
     </div>
     <aside class="notes">
       Presentación sobre diodos láser de semiconductor, con foco en el láser DFB.
-      Arrancamos con los fundamentos físicos y vamos subiendo en complejidad hacia
-      cavidades, espectro, calidad del haz, aplicaciones y rendimiento.
+      Arrancamos con fundamentos y subimos hacia cavidades, espectro, calidad del haz,
+      aplicaciones y rendimiento.
       Atajos: F = pantalla completa, S = vista del orador con estas notas, ESC = panorama.
     </aside>
   </section>
@@ -196,97 +196,42 @@
       </ul>
     </div>
     <aside class="notes">
-      Repasamos rápido los 7 ejes que pidió la cátedra. El último bloque (rendimiento)
-      es el "plus" para la nota: curvas L-I, eficiencia y dependencia térmica del umbral.
+      Los 7 ejes que pidió la cátedra. El último bloque (rendimiento) es el "plus" para la nota:
+      curva L-I, eficiencia y dependencia térmica del umbral.
     </aside>
   </section>
 
-  <!-- ============ 3 · FUNDAMENTOS (hero) ============ -->
-  <section class="section-hero">
-    <div class="num">01</div>
-    <h1>Fundamentos del diodo láser</h1>
-    <div class="divider"></div>
-    <p class="lead" style="max-width:22em">
-      Una unión p-n polarizada en directa donde la inyección de portadores
-      produce ganancia óptica por emisión estimulada.
-    </p>
-    <aside class="notes">Sección introductoria: de qué está hecho y por qué emite luz coherente.</aside>
-  </section>
-
-  <!-- 3b · LED vs LASER -->
+  <!-- ============ 3 · FUNDAMENTOS (01) ============ -->
   <section>
-    <h2>De LED a láser: el umbral</h2>
+    <span class="eyebrow">01 · Fundamentos</span>
+    <h2>Del LED al láser: umbral y confinamiento</h2>
     <div class="grid g2">
       <div class="card red">
-        <h3 style="color:var(--red)">Por debajo del umbral · LED</h3>
-        <p>Recombinación <strong>espontánea</strong>: fotones con dirección,
+        <h3 style="color:var(--red)">Debajo del umbral · LED</h3>
+        <p>Recombinación <strong>espontánea</strong> en la unión p-n: fotones con dirección,
         fase y polarización <strong>aleatorias</strong>. Luz incoherente.</p>
       </div>
       <div class="card cyan">
-        <h3>Por encima del umbral · LÁSER</h3>
-        <p>Si \(J > J_{th}\) se logra <strong>inversión de población</strong> y la
+        <h3>Encima del umbral · LÁSER</h3>
+        <p>Si \(J > J_{th}\) hay <strong>inversión de población</strong> y la
         <strong>emisión estimulada</strong> supera a la absorción → ganancia óptica neta.</p>
       </div>
     </div>
     <div class="eq" style="margin-top:14px">
-      <p class="small" style="margin:0;color:var(--ink)">Densidad de corriente de umbral &nbsp;\(J_{th}\)&nbsp; = punto donde la ganancia compensa las pérdidas de la cavidad.</p>
+      <p class="small" style="margin:0;color:var(--ink)"><strong>Confinamiento:</strong> la doble heteroestructura y los <strong>pozos cuánticos múltiples (MQW)</strong>
+      concentran portadores en pocos estados ⇒ <em>⇩ Jth</em>, menor sensibilidad térmica y ganancia más angosta.</p>
     </div>
-    <p class="small" style="margin-top:10px">
-      Mecanismo físico: electrones (zona n) y huecos (zona p) se inyectan a la
-      <strong>región activa</strong> al aplicar un potencial cercano al del <em>bandgap</em>.
-    </p>
     <aside class="notes">
-      Idea central: el mismo dispositivo es LED o láser según la corriente. Debajo del umbral
-      domina la emisión espontánea (LED); arriba del umbral aparece la emisión estimulada y la
-      luz se vuelve coherente. Jth es la frontera.
+      Idea central: el mismo dispositivo es LED o láser según la corriente. Jth es la frontera donde
+      la ganancia compensa las pérdidas de la cavidad. Las estructuras modernas usan pozos cuánticos
+      múltiples: al concentrar portadores en pocos estados energéticos bajan el umbral, estabilizan
+      frente a temperatura y afinan el espectro. Esto es clave para el DFB.
     </aside>
   </section>
 
-  <!-- 3c · Confinamiento -->
+  <!-- ============ 4 · FAMILIAS DE CAVIDAD (02) ============ -->
   <section>
-    <h2>Confinamiento: por qué baja el umbral</h2>
-    <div class="grid g3">
-      <div class="card">
-        <div class="kpi cyan">DH</div>
-        <p class="kpi-label">Doble heteroestructura</p>
-        <p>Confina portadores y fotones en una capa delgada de menor bandgap.</p>
-      </div>
-      <div class="card cyan">
-        <div class="kpi cyan">MQW</div>
-        <p class="kpi-label">Pozos cuánticos múltiples</p>
-        <p>Confinamiento por debajo de la longitud de onda de De Broglie del portador.</p>
-      </div>
-      <div class="card gold">
-        <div class="kpi gold">⇩ Jth</div>
-        <p class="kpi-label">Resultado</p>
-        <p>Menor umbral, menor sensibilidad térmica y espectro de ganancia más estrecho.</p>
-      </div>
-    </div>
-    <p class="small" style="margin-top:14px">
-      La cuantización espacial <strong>modifica la densidad de estados</strong>, concentrando
-      portadores en niveles energéticos definidos → más eficiencia con menos corriente.
-    </p>
-    <aside class="notes">
-      Las estructuras modernas usan pozos cuánticos múltiples. Al concentrar los portadores
-      en pocos estados energéticos, se reduce el umbral, se estabiliza frente a temperatura
-      y se afina el espectro de ganancia. Esto es clave para el DFB.
-    </aside>
-  </section>
-
-  <!-- ============ 4 · CAVIDAD (hero) ============ -->
-  <section class="section-hero">
-    <div class="num">02</div>
-    <h1>Tipo de cavidad</h1>
-    <div class="divider"></div>
-    <p class="lead" style="max-width:22em">
-      La ganancia necesita un <strong>resonador</strong> que retroalimente los
-      fotones de forma coherente. Cómo se construye ese espejo lo cambia todo.
-    </p>
-    <aside class="notes">Tema 1 del enunciado: Fabry-Perot u otras cavidades.</aside>
-  </section>
-
-  <!-- 4b · Familias de cavidad -->
-  <section>
+    <span class="eyebrow">02 · Tipo de cavidad</span>
     <h2>Familias de cavidad</h2>
     <div class="grid g2" style="gap:14px">
       <div class="card red">
@@ -311,13 +256,13 @@
       </div>
     </div>
     <aside class="notes">
-      Cinco familias. La diferencia esencial: dónde y cómo se hace la realimentación.
-      FP usa las caras clivadas del cristal; DFB y DBR usan rejillas de Bragg; VCSEL emite
-      vertical; ECL/VHG extienden el resonador hacia afuera para angostar la línea.
+      Cinco familias. La diferencia esencial: dónde y cómo se hace la realimentación. FP usa las
+      caras clivadas; DFB y DBR usan rejillas de Bragg; VCSEL emite vertical; ECL/VHG extienden el
+      resonador hacia afuera para angostar la línea.
     </aside>
   </section>
 
-  <!-- 4c · Tabla comparativa -->
+  <!-- 5 · Tabla comparativa -->
   <section>
     <h2>FP vs VCSEL vs DFB</h2>
     <table>
@@ -334,27 +279,25 @@
         <tr><td>Modo longitudinal</td><td>Multimodo</td><td>Monomodo (cavidad corta)</td><td class="col-dfb">Monomodo de alta estabilidad</td></tr>
         <tr><td>Corriente de umbral</td><td>~10 mA</td><td>~6 mA</td><td class="col-dfb">&gt;15 mA</td></tr>
         <tr><td>Ancho de banda modul.</td><td>&gt;1 GHz</td><td>&gt;2.5 GHz</td><td class="col-dfb">~10 GHz</td></tr>
-        <tr><td>Rango libre IMF3</td><td>~110 dB·Hz²ᐟ³</td><td>~116 dB·Hz²ᐟ³</td><td class="col-dfb">~120 dB·Hz²ᐟ³</td></tr>
         <tr><td>Tamaño de cavidad</td><td>250–500 µm</td><td>Pocos µm (vertical)</td><td class="col-dfb">Grande (rejilla + butterfly)</td></tr>
         <tr><td>Costo de testeo / empaque</td><td>Elevado</td><td>Muy bajo (en oblea)</td><td class="col-dfb">Alto (rejilla + TEC)</td></tr>
       </tbody>
     </table>
     <p class="tiny" style="margin-top:10px">Valores experimentales normalizados de referencia (ISMRM / INPHENIX). El DFB paga complejidad y costo a cambio de pureza espectral.</p>
     <aside class="notes">
-      Lectura rápida: VCSEL gana en costo y umbral; FP es el más simple; DFB es el más caro
-      y complejo pero el único con monomodo estable y mayor ancho de modulación (~10 GHz).
-      Para telecom coherente, el DFB es el estándar.
+      VCSEL gana en costo y umbral; FP es el más simple; DFB es el más caro y complejo pero el único
+      con monomodo estable y mayor ancho de modulación (~10 GHz). Para telecom coherente, el DFB es
+      el estándar.
     </aside>
   </section>
 
-  <!-- 4d · DFB detalle: Bragg + diagrama -->
+  <!-- 6 · DFB detalle: Bragg + kappa·L -->
   <section>
     <h2>Dentro del DFB: condición de Bragg</h2>
     <div class="twosplit">
       <div>
-        <p class="small">No hay espejos en los extremos: la luz se refleja un poco en
-        <strong>cada período</strong> de la rejilla. Las reflexiones interfieren
-        constructivamente sólo para una \(\lambda\):</p>
+        <p class="small">Sin espejos en los extremos: la luz se refleja un poco en
+        <strong>cada período</strong> de la rejilla. Las reflexiones suman en fase sólo para una \(\lambda\):</p>
         <div class="eq">
           $$ \Lambda = \frac{m\,\lambda_0}{2\,n_{\text{eff}}} $$
         </div>
@@ -368,20 +311,15 @@
               <stop offset="1" stop-color="#22d3ee" stop-opacity=".12"/>
             </linearGradient>
           </defs>
-          <!-- cladding -->
           <rect x="20" y="40" width="380" height="150" rx="8" fill="rgba(255,255,255,.04)" stroke="rgba(255,255,255,.15)"/>
-          <!-- active region -->
           <rect x="20" y="120" width="380" height="34" fill="url(#act)"/>
           <text x="30" y="142" fill="#bfe9f5" font-size="12">región activa (ganancia)</text>
-          <!-- grating corrugation -->
           <path d="M20 112 q10 -14 20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0"
                 fill="none" stroke="#f5c451" stroke-width="2.5"/>
-          <!-- period bracket -->
           <line x1="40" y1="92" x2="80" y2="92" stroke="#f5c451" stroke-width="1.5"/>
           <line x1="40" y1="88" x2="40" y2="96" stroke="#f5c451" stroke-width="1.5"/>
           <line x1="80" y1="88" x2="80" y2="96" stroke="#f5c451" stroke-width="1.5"/>
           <text x="46" y="84" fill="#f5c451" font-size="13">Λ</text>
-          <!-- waves -->
           <line x1="40" y1="137" x2="370" y2="137" stroke="#22d3ee" stroke-width="2" marker-end="url(#ar)"/>
           <line x1="380" y1="146" x2="50" y2="146" stroke="#ff5d6c" stroke-width="2" marker-end="url(#ar2)"/>
           <defs>
@@ -393,230 +331,93 @@
         <figcaption>Rejilla de Bragg corrugada sobre la guía de onda activa</figcaption>
       </figure>
     </div>
+    <div class="callout" style="margin-top:12px">
+      <p class="small" style="margin:0">El acoplamiento se diseña con <strong>\(\kappa L \approx 1\text{–}2\)</strong> (balanceado). Para forzar
+      <strong>un solo modo</strong> en Bragg se añade un <em>desfase de λ/4</em> en el centro o recubrimientos <strong>AR/HR</strong> en las facetas.</p>
+    </div>
     <aside class="notes">
-      El DFB no tiene espejos discretos. La rejilla periódica refleja débilmente en cada
-      período; sólo la longitud de onda de Bragg suma en fase. Con n_eff≈3.4 a 1550 nm el
-      período es de unos 230 nanómetros: nanofabricación fina.
+      El DFB no tiene espejos discretos: la rejilla refleja débilmente en cada período y sólo la
+      longitud de onda de Bragg suma en fase (período ~230 nm a 1550 nm). κL es la perilla de diseño:
+      bajo se escapa la luz, alto aparece el "quemado espacial del agujero". El desfase de λ/4 deja un
+      único modo.
     </aside>
   </section>
 
-  <!-- 4e · Acoplamiento kappa·L -->
+  <!-- ============ 7 · NIVELES (03) ============ -->
   <section>
-    <h2>Acoplamiento \(\kappa L\): el parámetro de diseño</h2>
-    <div class="grid g12">
-      <div>
-        <p class="small">Ondas acopladas adelante/atrás; la fuerza de la rejilla es el
-        coeficiente de acoplamiento \(\kappa\):</p>
-        <div class="eq">$$ \kappa = \frac{\pi\,\delta n}{\lambda_0} $$</div>
-        <p class="small">El producto adimensional <strong>\(\kappa L\)</strong> define la respuesta:
-        óptimo \(\kappa L \approx 1\text{–}2\).</p>
-      </div>
-      <div class="grid" style="gap:10px">
-        <div class="card red"><h3 style="color:var(--red);font-size:.72em">κL muy bajo</h3><p>Pérdidas por radiación severas en los extremos.</p></div>
-        <div class="card cyan"><h3 style="font-size:.72em">κL ≈ 1–2</h3><p>Realimentación balanceada y estable.</p></div>
-        <div class="card gold"><h3 style="color:var(--gold);font-size:.72em">κL muy alto</h3><p><em>Spatial hole burning</em>: energía localizada, inestabilidad espectral.</p></div>
-      </div>
-    </div>
-    <div class="callout" style="margin-top:14px">
-      <p class="small" style="margin:0">Para forzar <strong>un solo modo</strong> centrado en Bragg se añade un
-      <em>desfase de λ/4</em> en el centro de la rejilla, o recubrimientos <strong>AR/HR</strong> en las facetas.</p>
-    </div>
-    <aside class="notes">
-      κL es la perilla de diseño. Bajo = se escapa la luz; alto = se concentra en el centro y
-      aparece el "quemado espacial del agujero", que degrada el monomodo. El desfase de λ/4
-      rompe la degeneración y deja un único modo en la longitud de onda de Bragg.
-    </aside>
-  </section>
-
-  <!-- ============ 5 · NIVELES (hero) ============ -->
-  <section class="section-hero">
-    <div class="num">03</div>
-    <h1>Niveles: ¿3 ó 4?</h1>
-    <div class="divider"></div>
-    <p class="lead" style="max-width:22em">
-      En un semiconductor las transiciones no son entre niveles discretos sino
-      entre <strong>bandas continuas</strong>. ¿A qué sistema se parece y por qué importa?
-    </p>
-    <aside class="notes">Tema 2: niveles 3 ó 4 y en qué influye.</aside>
-  </section>
-
-  <!-- 5b · quasi-Fermi + Bernard-Duraffourg -->
-  <section>
-    <h2>Quasi-niveles de Fermi</h2>
+    <span class="eyebrow">03 · Niveles: ¿3 ó 4?</span>
+    <h2>Transiciones entre bandas y en qué influyen</h2>
     <div class="twosplit">
       <div>
-        <p class="small">Fuera del equilibrio, electrones y huecos se describen con
-        <strong>dos</strong> potenciales: \(F_c\) (conducción) y \(F_v\) (valencia).</p>
-        <p class="small">Hay ganancia sólo si se cumple <strong>Bernard-Duraffourg</strong>:</p>
+        <p class="small">Fuera del equilibrio hay <strong>dos</strong> quasi-niveles de Fermi:
+        \(F_c\) (conducción) y \(F_v\) (valencia). Hay ganancia sólo si se cumple <strong>Bernard-Duraffourg</strong>:</p>
         <div class="eq">$$ F_c - F_v > h\nu > E_g $$</div>
-        <p class="tiny">Requiere <strong>dopaje degenerado</strong>: \(F_c\) entra en la banda de conducción y \(F_v\) en la de valencia.</p>
+        <div class="eq red" style="margin-top:10px">
+          <p class="tiny" style="margin:0;color:var(--ink)"><strong>El diodo se comporta como 3 niveles:</strong> sin bombear la banda de valencia
+          está llena y <em>absorbe</em>. <strong>En qué influye:</strong> primero hay que pagar la <em>transparencia</em>
+          ⇒ umbral mayor que el ideal de 4 niveles.</p>
+        </div>
       </div>
       <figure>
         <svg viewBox="0 0 360 230" width="100%" role="img" aria-label="Diagrama de bandas con quasi-Fermi">
-          <!-- conduction band -->
           <rect x="40" y="40" width="280" height="40" fill="rgba(34,211,238,.18)" stroke="rgba(34,211,238,.5)"/>
           <text x="48" y="34" fill="#22d3ee" font-size="12">Banda de conducción</text>
-          <!-- valence band -->
           <rect x="40" y="150" width="280" height="40" fill="rgba(255,93,108,.18)" stroke="rgba(255,93,108,.5)"/>
           <text x="48" y="210" fill="#ff5d6c" font-size="12">Banda de valencia</text>
-          <!-- Fc / Fv -->
           <line x1="40" y1="58" x2="320" y2="58" stroke="#22d3ee" stroke-dasharray="5 4" stroke-width="1.5"/>
           <text x="324" y="62" fill="#22d3ee" font-size="12">Fc</text>
           <line x1="40" y1="172" x2="320" y2="172" stroke="#ff5d6c" stroke-dasharray="5 4" stroke-width="1.5"/>
           <text x="324" y="176" fill="#ff5d6c" font-size="12">Fv</text>
-          <!-- Eg + photon -->
           <line x1="150" y1="80" x2="150" y2="150" stroke="#9bb0cc" stroke-width="1" stroke-dasharray="3 3"/>
           <text x="156" y="118" fill="#9bb0cc" font-size="11">Eg</text>
           <line x1="220" y1="80" x2="220" y2="150" stroke="#f5c451" stroke-width="2.5" marker-end="url(#dn)"/>
           <text x="226" y="120" fill="#f5c451" font-size="12">hν</text>
           <defs><marker id="dn" markerWidth="9" markerHeight="9" refX="3" refY="7" orient="auto"><path d="M0 0 L6 0 L3 7 z" fill="#f5c451"/></marker></defs>
         </svg>
-        <figcaption>Emisión estimulada entre bandas (no entre niveles discretos)</figcaption>
+        <figcaption>Emisión estimulada entre bandas continuas, no entre niveles discretos</figcaption>
       </figure>
     </div>
     <aside class="notes">
-      A diferencia del láser de gas, acá las transiciones son banda a banda. La condición de
-      Bernard-Duraffourg dice cuándo hay ganancia: la separación de los quasi-Fermi debe
-      superar la energía del fotón, que a su vez supera el gap.
+      Punto pedido por la cátedra. A diferencia del láser de gas, las transiciones son banda a banda.
+      Bernard-Duraffourg dice cuándo hay ganancia. En 4 niveles el umbral es bajo porque no hay
+      reabsorción; el diodo se parece a 3 niveles: parte opaco y hay que pagar la transparencia, por
+      eso el umbral es mayor. En qué influye: directamente en la corriente de umbral y la eficiencia.
+      (Aparte: en baja inyección domina la recombinación no radiativa SRH; en alta, la radiativa ∝n·p,
+      pero también el Auger ∝n³ que genera calor.)
     </aside>
   </section>
 
-  <!-- 5c · equivalencia 3 vs 4 niveles -->
+  <!-- ============ 8 · BOMBEO (04) ============ -->
   <section>
-    <h2>¿3 ó 4 niveles? En qué influye</h2>
-    <div class="grid g2">
-      <div class="card gold">
-        <h3 style="color:var(--gold)">Sistema de 4 niveles (teórico ideal)</h3>
-        <p><strong>Umbral más bajo</strong>: el nivel inferior de la transición está casi vacío,
-        sin reabsorción en la frecuencia de emisión.</p>
-      </div>
-      <div class="card cyan">
-        <h3>El diodo se comporta como 3 niveles</h3>
-        <p>Sin bombear, la banda de valencia está <strong>llena</strong>: el medio
-        <strong>absorbe</strong> los fotones con \(h\nu \geq E_g\) → medio opaco con pérdidas.</p>
-      </div>
-    </div>
-    <div class="eq red" style="margin-top:14px">
-      <p class="small" style="margin:0;color:var(--ink)"><strong>Consecuencia (en qué influye):</strong> el bombeo primero debe llegar a la
-      <em>transparencia</em> (absorción neta = 0) antes de dar ganancia ⇒ <strong>umbral más alto</strong>
-      que un sistema de 4 niveles ideal.</p>
-    </div>
-    <p class="tiny" style="margin-top:10px">Sólo la inyección por encima de la transparencia produce ganancia neta y permite la oscilación láser.</p>
-    <aside class="notes">
-      Punto pedido por la cátedra. En 4 niveles el umbral es bajo porque no hay reabsorción.
-      El diodo se parece a un sistema de 3 niveles: parte opaco y hay que "pagar" la
-      transparencia primero, por eso el umbral es comparativamente mayor. En qué influye:
-      directamente en la corriente de umbral y en la eficiencia.
-    </aside>
-  </section>
-
-  <!-- 5d · niveles de inyeccion -->
-  <section>
-    <h2>Niveles de inyección y recombinación</h2>
-    <p class="small" style="margin-bottom:.4em">Parámetro: \( \dfrac{\delta n}{p_0} \) (portadores en exceso / mayoritarios en equilibrio).</p>
-    <div class="grid g2">
-      <div class="card red">
-        <h3 style="color:var(--red)">Baja inyección \( \delta n/p_0 \ll 1 \)</h3>
-        <p>Domina la recombinación <strong>no radiativa SRH</strong> (defectos). Ganancia
-        insuficiente → régimen LED.</p>
-      </div>
-      <div class="card cyan">
-        <h3>Alta inyección \( \delta n/p_0 \gg 1 \)</h3>
-        <p>Degeneración doble. La recombinación <strong>radiativa</strong> escala \( \propto n\cdot p \)
-        → amplificación coherente.</p>
-      </div>
-    </div>
-    <div class="callout" style="margin-top:14px">
-      <p class="small" style="margin:0">Pero la alta inyección activa la recombinación <strong>Auger</strong> \( \propto C n^3 \)
-      (peor en gap angosto): genera <em>calor residual</em> y limita el rendimiento a alta temperatura.</p>
-    </div>
-    <aside class="notes">
-      Tres canales compiten: SRH (defectos, domina en baja inyección), radiativo (el que
-      queremos, escala con n·p) y Auger (cúbico, parásito en alta inyección). El balance fija
-      la eficiencia cuántica interna y cuánto calor sobra.
-    </aside>
-  </section>
-
-  <!-- ============ 6 · BOMBEO (hero) ============ -->
-  <section class="section-hero">
-    <div class="num">04</div>
-    <h1>Mecanismo de bombeo</h1>
-    <div class="divider"></div>
-    <p class="lead" style="max-width:22em">
-      Bombeo <strong>eléctrico</strong>: inyección directa de corriente. Modular la
-      corriente modula la luz… y también sintoniza la longitud de onda.
-    </p>
-    <aside class="notes">Tema 3: cómo se bombea el diodo.</aside>
-  </section>
-
-  <!-- 6b · inyeccion + modulacion -->
-  <section>
-    <h2>Inyección directa de corriente</h2>
+    <span class="eyebrow">04 · Mecanismo de bombeo</span>
+    <h2>Inyección directa de corriente y sintonización</h2>
     <div class="grid g2">
       <div class="card cyan">
-        <h3>Bombeo eléctrico</h3>
-        <p>Corriente por el electrodo superior, confinada a una <strong>franja activa</strong>
-        estrecha por capas aislantes laterales.</p>
+        <h3>Bombeo eléctrico + modulación</h3>
+        <p>Corriente por el electrodo superior, confinada a una <strong>franja activa</strong> estrecha.
+        La luz se <strong>modula directamente</strong> con la corriente: <strong>&gt; 10 GHz</strong>, sin moduladores externos.</p>
       </div>
       <div class="card gold">
-        <h3 style="color:var(--gold)">Modulación directa</h3>
-        <p>La radiación se modula <strong>controlando la amplitud de corriente</strong>:
-        frecuencias <strong>&gt; 10 GHz</strong>. Sin moduladores externos.</p>
-      </div>
-    </div>
-    <p class="small" style="margin-top:14px">
-      Ventaja frente a láseres de gas o estado sólido (que requieren bombeo óptico o descarga):
-      el diodo se enciende, apaga y sintoniza <strong>con electrónica</strong>.
-    </p>
-    <aside class="notes">
-      A diferencia de un láser de gas (descarga) o estado sólido (bombeo óptico), el diodo se
-      bombea con corriente eléctrica directa. Eso permite modular la luz directamente a más de
-      10 GHz, base de las telecomunicaciones ópticas.
-    </aside>
-  </section>
-
-  <!-- 6c · sintonizacion -->
-  <section>
-    <h2>Dos perillas de sintonización</h2>
-    <div class="grid g2">
-      <div class="card cyan">
-        <h3>Térmica (TEC)</h3>
-        <p>Cambiar la temperatura cambia \(n_{\text{eff}}\) (coeficiente termo-óptico):</p>
+        <h3 style="color:var(--gold)">Sintonización térmica (TEC)</h3>
+        <p>El TEC cambia \(n_{\text{eff}}\): corrimiento suave al <strong>rojo ~0.1 nm/K</strong> (rango 2–5 nm) sin saltos de modo.</p>
         <div class="eq" style="margin:.3em 0">$$ \frac{d\lambda_B}{dT}=2\Lambda\,\frac{dn_{\text{eff}}}{dT} $$</div>
-        <p class="tiny">Corrimiento suave al <strong>rojo</strong> ~0.1 nm/K · rango 2–5 nm · sin saltos de modo.</p>
-      </div>
-      <div class="card red">
-        <h3 style="color:var(--red)">Por corriente</h3>
-        <p>Ajuste <strong>ultrarrápido</strong> (ns), rango menor. Dos efectos opuestos:</p>
-        <ul style="margin-top:.2em">
-          <li><strong>Plasma de portadores</strong>: ↓n_eff → corrimiento al <em style="color:#7fd1ff">azul</em></li>
-          <li><strong>Joule</strong>: autocalentamiento → corrimiento al <em>rojo</em></li>
-        </ul>
-        <p class="tiny">En CW domina Joule ⇒ neto al rojo al subir la polarización.</p>
+        <p class="tiny">Por corriente (ns, rango menor): plasma de portadores → <em style="color:#7fd1ff">azul</em>; Joule → <em>rojo</em>. En CW domina Joule.</p>
       </div>
     </div>
+    <p class="small" style="margin-top:12px">
+      Ventaja frente a gas/estado sólido (bombeo óptico o descarga): el diodo se enciende, apaga y
+      sintoniza <strong>con electrónica</strong>. Esto es lo que explota la espectroscopía TDLAS.
+    </p>
     <aside class="notes">
-      Dos formas de mover la longitud de onda. La térmica con el TEC es la de mayor rango y muy
-      estable (0.1 nm/K). La de corriente es rapidísima pero chica, y pelean dos efectos: el
-      plasma de portadores empuja al azul y el calentamiento Joule al rojo; en continua gana
-      Joule. Esto es lo que se explota en espectroscopía TDLAS.
+      El diodo se bombea con corriente directa: modulación directa &gt;10 GHz, base de las telecom
+      ópticas. Dos perillas para mover λ: la térmica (TEC, 0.1 nm/K, mayor rango y muy estable) y la
+      de corriente (rapidísima pero chica, con plasma al azul y Joule al rojo; en continua gana Joule).
     </aside>
   </section>
 
-  <!-- ============ 7 · ESPECTRO (hero) ============ -->
-  <section class="section-hero">
-    <div class="num">05</div>
-    <h1>Respuesta espectral</h1>
-    <div class="divider"></div>
-    <p class="lead" style="max-width:22em">
-      El DFB emite en un <strong>único modo longitudinal</strong> de línea
-      extremadamente angosta, con fuerte supresión de los modos laterales.
-    </p>
-    <aside class="notes">Tema 4: respuesta espectral.</aside>
-  </section>
-
-  <!-- 7b · espectro chart -->
+  <!-- ============ 9 · ESPECTRO (05) ============ -->
   <section>
+    <span class="eyebrow">05 · Respuesta espectral</span>
     <h2>Multimodo (FP) vs monomodo (DFB)</h2>
     <div class="twosplit">
       <div class="chartbox"><canvas id="chartSpectrum" height="220"></canvas></div>
@@ -630,36 +431,23 @@
       </div>
     </div>
     <aside class="notes">
-      El gráfico contrasta el peine de modos del Fabry-Perot contra el pico único del DFB.
-      Números clave: línea de pocos MHz y SMSR de 30-35 dB. Un solo modo significa menos
-      ensanchamiento por dispersión cromática en la fibra: por eso el DFB manda en larga distancia.
+      El gráfico contrasta el peine de modos del Fabry-Perot contra el pico único del DFB. Línea de
+      pocos MHz y SMSR de 30-35 dB. Un solo modo = menos ensanchamiento por dispersión cromática:
+      por eso el DFB manda en larga distancia.
     </aside>
   </section>
 
-  <!-- ============ 8 · SPOT (hero) ============ -->
-  <section class="section-hero">
-    <div class="num">06</div>
-    <h1>El spot</h1>
-    <div class="divider"></div>
-    <p class="lead" style="max-width:22em">
-      Divergencia (discrepancia) del haz, astigmatismo, coherencia y el
-      factor de calidad <strong>M² (MTE)</strong>.
-    </p>
-    <aside class="notes">Tema 5: spot — discrepancia, coherencia, MTE.</aside>
-  </section>
-
-  <!-- 8b · eje rapido / lento -->
+  <!-- ============ 10 · SPOT divergencia + astigmatismo (06) ============ -->
   <section>
+    <span class="eyebrow">06 · El spot</span>
     <h2>Discrepancia: eje rápido vs eje lento</h2>
     <div class="twosplit">
       <figure>
         <svg viewBox="0 0 380 230" width="100%" role="img" aria-label="Divergencia elíptica fast/slow axis">
           <rect x="20" y="95" width="40" height="40" fill="rgba(34,211,238,.25)" stroke="#22d3ee"/>
           <text x="14" y="150" fill="#9bb0cc" font-size="10">faceta</text>
-          <!-- fast axis (vertical, wide) -->
           <path d="M60 115 L330 55 M60 115 L330 175" stroke="#ff5d6c" stroke-width="2" fill="none"/>
           <text x="250" y="48" fill="#ff5d6c" font-size="12">Eje rápido · 30–45°</text>
-          <!-- slow axis (horizontal, narrow) -->
           <path d="M60 115 L330 100 M60 115 L330 130" stroke="#22d3ee" stroke-width="2" fill="none"/>
           <text x="250" y="205" fill="#22d3ee" font-size="12">Eje lento · 8–12°</text>
         </svg>
@@ -676,106 +464,50 @@
         </div>
       </div>
     </div>
-    <aside class="notes">
-      El haz sale elíptico por la forma de la guía: muy delgada en vertical (eje rápido,
-      difracta mucho, hasta 45°) y ancha en horizontal (eje lento, diverge poco pero es
-      multimodo). Esa asimetría obliga a óptica de colimación.
-    </aside>
-  </section>
-
-  <!-- 8c · astigmatismo -->
-  <section>
-    <h2>Astigmatismo longitudinal</h2>
-    <p class="small">Las cinturas del eje rápido y lento nacen en planos distintos: separación \(D_{ast}\).</p>
-    <div class="grid g2">
-      <div class="card cyan">
-        <h3>Guiado por índice</h3>
-        <p>Confinamiento por salto de índice. Astigmatismo bajo <strong>\(D_{ast}\approx 2\text{–}8\,\mu m\)</strong>:
-        una sola lente colima ambos ejes.</p>
-      </div>
-      <div class="card red">
-        <h3 style="color:var(--red)">Guiado por ganancia</h3>
-        <p>Confinamiento sólo por el perfil de corriente. Astigmatismo severo
-        <strong>\(D_{ast}\approx 30\text{–}60\,\mu m\)</strong>: requiere FAC/SAC, prismas anamórficos.</p>
-      </div>
-    </div>
-    <p class="tiny" style="margin-top:12px">Corrección típica: colimadores de eje rápido y lento (FAC/SAC), prismas anamórficos o placas de fase difractivas.</p>
-    <aside class="notes">
-      El astigmatismo depende de cómo se guía lateralmente la luz. Guiado por índice: muy poco
-      astigmatismo, una lente alcanza. Guiado por ganancia: mucho astigmatismo, hay que usar
-      óptica cilíndrica cruzada (FAC y SAC) o prismas anamórficos.
-    </aside>
-  </section>
-
-  <!-- 8d · coherencia -->
-  <section>
-    <h2>Coherencia: Lorentziana vs Gaussiana</h2>
-    <div class="grid g2">
-      <div class="card cyan">
-        <h3>Espacial</h3>
-        <p>Ligada al modo transversal fundamental <strong>TEM₀₀</strong> (sin nodos laterales).</p>
-      </div>
-      <div class="card gold">
-        <h3 style="color:var(--gold)">Temporal</h3>
-        <p>Longitud de coherencia \( l_c = c\,\tau_c \), inversa al ancho de línea \(\Delta\nu\).</p>
-      </div>
-    </div>
-    <div class="grid g2" style="margin-top:12px">
-      <div class="eq"><p class="tiny" style="margin:0 0 .2em;color:var(--ink)">Lorentziana (ruido cuántico, Schawlow-Townes)</p>$$ l_c=\frac{c}{\pi\,\Delta\nu} $$</div>
-      <div class="eq gold"><p class="tiny" style="margin:0 0 .2em;color:var(--ink)">Gaussiana (ruido técnico, térmico/acústico)</p>$$ l_c=\frac{c\sqrt{2\ln 2}}{\pi\,\Delta\nu} $$</div>
-    </div>
     <div class="callout" style="margin-top:12px">
-      <p class="small" style="margin:0">FP: línea ancha, \(l_c\) de <strong>fracciones de mm</strong>.
-      DFB monomodo: línea de MHz ⇒ \(l_c\) de <strong>10 a 130 m</strong>.</p>
+      <p class="small" style="margin:0"><strong>Astigmatismo \(D_{ast}\):</strong> guiado por índice ≈ 2–8 µm (una lente colima ambos ejes);
+      guiado por ganancia ≈ 30–60 µm (requiere FAC/SAC, prismas anamórficos).</p>
     </div>
     <aside class="notes">
-      Dos coherencias: la espacial (un solo modo transversal, TEM00) y la temporal (cuán largo
-      mantiene la fase). La longitud de coherencia es inversa al ancho de línea; la constante
-      depende de si el perfil es lorentziano (ruido cuántico) o gaussiano (ruido técnico). El
-      salto FP→DFB es brutal: de fracciones de mm a decenas de metros.
+      El haz sale elíptico: muy delgado en vertical (eje rápido, difracta hasta 45°) y ancho en
+      horizontal (eje lento, diverge poco pero multimodo). El astigmatismo depende del guiado: por
+      índice casi nulo (una lente alcanza); por ganancia severo (óptica cilíndrica cruzada FAC/SAC).
     </aside>
   </section>
 
-  <!-- 8e · MTE / M2 -->
+  <!-- 11 · SPOT coherencia + MTE -->
   <section>
-    <h2>MTE — factor de calidad del haz \(M^2\)</h2>
-    <div class="twosplit">
+    <h2>Coherencia y factor de calidad \(M^2\) (MTE)</h2>
+    <div class="grid g2">
       <div>
-        <p class="small">Mide la discrepancia respecto del haz gaussiano ideal limitado por
-        difracción (\(M^2=1\)):</p>
-        <div class="eq">$$ M^2=\frac{\pi\,w_0\,\theta}{4\,\lambda_0} $$</div>
-        <p class="tiny">\(w_0\): semi-ancho de cintura · \(\theta\): divergencia en campo lejano.</p>
+        <p class="small"><strong>Espacial:</strong> modo transversal fundamental <strong>TEM₀₀</strong>.
+        <strong>Temporal:</strong> \( l_c = c\,\tau_c \), inversa al ancho de línea \(\Delta\nu\).</p>
+        <div class="eq"><p class="tiny" style="margin:0 0 .2em;color:var(--ink)">Lorentziana (ruido cuántico, Schawlow-Townes)</p>$$ l_c=\frac{c}{\pi\,\Delta\nu} $$</div>
+        <div class="eq gold"><p class="tiny" style="margin:0 0 .2em;color:var(--ink)">Gaussiana (ruido técnico, térmico/acústico)</p>$$ l_c=\frac{c\sqrt{2\ln 2}}{\pi\,\Delta\nu} $$</div>
+        <p class="tiny">FP: \(l_c\) de fracciones de mm. DFB monomodo: <strong>10 a 130 m</strong>.</p>
       </div>
-      <div class="card gold">
-        <div class="kpi gold">M² ≤ 1.2</div>
-        <p class="kpi-label">DFB monomodo · ambos ejes</p>
-        <p>Spot casi en el límite difractivo ⇒ <strong>acoplamiento eficiente</strong> a fibra monomodo.</p>
+      <div>
+        <p class="small">El \(M^2\) mide la discrepancia respecto del haz gaussiano ideal limitado por difracción (\(M^2=1\)):</p>
+        <div class="eq">$$ M^2=\frac{\pi\,w_0\,\theta}{4\,\lambda_0} $$</div>
+        <div class="card gold" style="margin-top:10px">
+          <div class="kpi gold">M² ≤ 1.2</div>
+          <p class="kpi-label">DFB monomodo · ambos ejes</p>
+          <p>Spot casi en el límite difractivo ⇒ <strong>acoplamiento eficiente</strong> a fibra monomodo.</p>
+        </div>
       </div>
     </div>
-    <p class="small" style="margin-top:12px">El haz se clasifica por sus <strong>modos TEM</strong>; el de menor pérdida es el TEM₀₀.</p>
     <aside class="notes">
-      M² (a veces llamado MTE) compara el haz real con el gaussiano ideal: 1 es perfecto. Los
-      DFB de pozo cuántico monomodo lateral llegan a M²≤1.2 en los dos ejes, casi límite de
-      difracción, lo que permite meter casi toda la luz en una fibra monomodo.
+      Dos coherencias: espacial (un solo modo TEM00) y temporal (cuán largo mantiene la fase). lc es
+      inversa al ancho de línea; la constante depende de si el perfil es lorentziano (ruido cuántico)
+      o gaussiano (ruido técnico). El salto FP→DFB es de fracciones de mm a decenas de metros. M²
+      (a veces "MTE") compara con el gaussiano ideal: los DFB de pozo cuántico llegan a ≤1.2.
     </aside>
   </section>
 
-  <!-- ============ 9 · APLICACIONES (hero) ============ -->
-  <section class="section-hero">
-    <div class="num">07</div>
-    <h1>Aplicaciones</h1>
-    <div class="divider"></div>
-    <p class="lead" style="max-width:22em">
-      Donde la <strong>coherencia temporal</strong> y la estabilidad espectral
-      son el recurso de mayor valor.
-    </p>
-    <aside class="notes">Tema 6: aplicaciones civiles y de defensa.</aside>
-  </section>
-
-  <!-- 9b · civiles -->
+  <!-- ============ 12 · APLICACIONES CIVILES (07) ============ -->
   <section>
-    <span class="eyebrow">Civiles</span>
-    <h2>Aplicaciones civiles</h2>
+    <span class="eyebrow">07 · Aplicaciones civiles</span>
+    <h2>Donde manda la coherencia temporal</h2>
     <div class="grid g2" style="gap:14px">
       <div class="card cyan">
         <h3>Telecom de larga distancia</h3>
@@ -799,15 +531,15 @@
       </div>
     </div>
     <aside class="notes">
-      Cuatro grandes verticales civiles. El hilo común es la pureza espectral: en telecom
-      reduce dispersión; en TDLAS permite "encajar" en una línea de absorción molecular y
-      detectar gases a partes por billón; en biomedicina, buena calidad de haz y confiabilidad.
+      El hilo común es la pureza espectral: en telecom reduce dispersión; en TDLAS permite encajar en
+      una línea de absorción molecular y detectar gases a partes por billón; en biomedicina, buena
+      calidad de haz y confiabilidad.
     </aside>
   </section>
 
-  <!-- 9c · defensa -->
+  <!-- 13 · DEFENSA -->
   <section>
-    <span class="eyebrow red">Defensa</span>
+    <span class="eyebrow red">07 · Defensa</span>
     <h2>Defensa, seguridad y aeroespacial</h2>
     <div class="grid g3" style="gap:14px">
       <div class="card red"><h3 style="color:var(--red);font-size:.8em">Telemetría y guiado</h3><p>Telémetros láser y guiado óptico de misiles con λ estable.</p></div>
@@ -819,27 +551,14 @@
     </div>
     <p class="tiny" style="margin-top:12px">El valor militar del DFB: estabilidad de apuntamiento, alcance efectivo y robustez térmica con longitud de onda controlada.</p>
     <aside class="notes">
-      En defensa lo que se valora es la longitud de onda específica y estable, más la
-      robustez térmica. Usos: telemetría, guiado de misiles, designación de blancos, radar de
-      corto alcance y vigilancia/reconocimiento.
+      En defensa se valora la longitud de onda específica y estable más la robustez térmica. Usos:
+      telemetría, guiado de misiles, designación de blancos, radar de corto alcance y vigilancia/ISR.
     </aside>
   </section>
 
-  <!-- ============ 10 · RENDIMIENTO PLUS (hero) ============ -->
-  <section class="section-hero">
-    <span class="eyebrow gold" style="margin-bottom:.5em">Plus para la nota</span>
-    <div class="num">08</div>
-    <h1>Rendimiento electro-óptico</h1>
-    <div class="divider"></div>
-    <p class="lead" style="max-width:22em">
-      Curva L-I, eficiencia, pérdidas internas y la dependencia térmica del
-      umbral — lo que decide si el dispositivo sirve.
-    </p>
-    <aside class="notes">Tema 7 / plus: rendimiento. Acá metemos las curvas y métricas de laboratorio.</aside>
-  </section>
-
-  <!-- 10b · curva L-I + eficiencia -->
+  <!-- ============ 14 · RENDIMIENTO L-I (08 · Plus) ============ -->
   <section>
+    <span class="eyebrow gold">08 · Plus para la nota · Rendimiento</span>
     <h2>Curva L-I y eficiencia diferencial</h2>
     <div class="twosplit">
       <div class="chartbox"><canvas id="chartLI" height="220"></canvas></div>
@@ -852,14 +571,13 @@
       </div>
     </div>
     <aside class="notes">
-      La curva L-I: casi nada hasta el umbral y después una recta cuya pendiente da la
-      eficiencia. La eficiencia externa siempre es menor que la interna por las pérdidas αi,
-      que se miden barriendo la longitud de cavidad. Notar cómo a más temperatura sube el
-      umbral y baja la pendiente.
+      La curva L-I: casi nada hasta el umbral y después una recta cuya pendiente da la eficiencia. La
+      externa siempre es menor que la interna por las pérdidas αi, que se miden barriendo la longitud
+      de cavidad. A más temperatura sube el umbral y baja la pendiente.
     </aside>
   </section>
 
-  <!-- 10c · T0 chart -->
+  <!-- 15 · T0 chart -->
   <section>
     <h2>Dependencia térmica del umbral \(T_0\)</h2>
     <div class="twosplit">
@@ -872,16 +590,17 @@
           <span class="chip r">T₀ bajo: sensible</span>
           <span class="chip c">T₀ alto: estable</span>
         </div>
+        <p class="tiny" style="margin-top:8px">El diseño de la zona activa controla \(T_0\): más pozos cuánticos ⇒ ganancia modal más estable.</p>
       </div>
     </div>
     <aside class="notes">
-      T0 es la temperatura característica: cuantifica cuánto crece el umbral con la temperatura.
-      El gráfico compara un T0 bajo (sube rápido, malo) contra uno alto (plano, bueno). Un T0
-      bajo limita la operación en continua por avalancha térmica.
+      T0 es la temperatura característica: cuánto crece el umbral con la temperatura. El gráfico compara
+      un T0 bajo (sube rápido, malo) contra uno alto (plano, bueno). Un T0 bajo limita la operación en
+      continua por avalancha térmica.
     </aside>
   </section>
 
-  <!-- 10d · estructura zona activa -->
+  <!-- 16 · estructura zona activa -->
   <section>
     <h2>Diseño de la zona activa y \(T_0\)</h2>
     <table>
@@ -896,40 +615,13 @@
     </table>
     <p class="tiny" style="margin-top:12px">Más pozos ⇒ ganancia modal más estable. Los QD logran \(J_{th}\) bajísimo, pero el contenido de indio compromete \(T_0\).</p>
     <aside class="notes">
-      El diseño microscópico controla T0. Subir de 1 a varios pozos estabiliza la ganancia y
-      baja el corrimiento por temperatura; con 4 pozos optimizados se llega a T0≈290 K, muy
-      bueno. Los puntos cuánticos dan umbral bajísimo por cuantización 3D, pero más indio corre
-      al rojo la emisión y degrada T0.
+      Subir de 1 a varios pozos estabiliza la ganancia y baja el corrimiento por temperatura; con 4
+      pozos optimizados se llega a T0≈290 K. Los puntos cuánticos dan umbral bajísimo por cuantización
+      3D, pero más indio corre al rojo la emisión y degrada T0.
     </aside>
   </section>
 
-  <!-- 10e · diagnostico electrico -->
-  <section>
-    <h2>Diagnóstico por derivadas eléctricas</h2>
-    <div class="twosplit">
-      <div>
-        <p class="small">La derivada de la curva V-I revela el circuito equivalente:</p>
-        <div class="eq">$$ I\,\frac{dV}{dI} $$</div>
-        <p class="small">Permite extraer con precisión:</p>
-      </div>
-      <div class="card cyan">
-        <ul style="margin:0">
-          <li>Factor de idealidad de la unión p-n</li>
-          <li>Resistencia de contacto óhmico</li>
-          <li>Corrientes de fuga parásitas</li>
-          <li>Corriente de umbral eléctrica exacta</li>
-        </ul>
-      </div>
-    </div>
-    <p class="tiny" style="margin-top:12px">Mientras la tensión de unión es casi independiente de T, la derivada \(I\,dV/dI\) aísla elementos resistivos lineales y no lineales de la epitaxia.</p>
-    <aside class="notes">
-      Truco de laboratorio: en vez de mirar V-I cruda, se mira la derivada I·dV/dI, que separa
-      los aportes resistivos y deja leer idealidad, resistencia de contacto, fugas y el umbral
-      eléctrico exacto.
-    </aside>
-  </section>
-
-  <!-- ============ 11 · CONCLUSIONES ============ -->
+  <!-- ============ 17 · CONCLUSIONES ============ -->
   <section>
     <span class="eyebrow">Síntesis</span>
     <h2>Conclusiones</h2>
@@ -941,38 +633,14 @@
       <div class="card green"><h3 style="color:var(--green);font-size:.82em">Pureza espectral → aplicaciones</h3><p>Coherencia de decenas de m: telecom, sensado, defensa.</p></div>
     </div>
     <p class="small" style="margin-top:14px;text-align:center">El DFB cambia <strong>complejidad y costo</strong> por <strong>pureza espectral</strong>: por eso es el estándar donde la coherencia es crítica.</p>
+    <p class="tiny" style="margin-top:8px;text-align:center">Fuentes: INPHENIX · Fosco Connect · Thorlabs · RP Photonics · MKS/Newport · ISMRM · Optica · Bernard &amp; Duraffourg (1961) · TOPTICA.</p>
     <aside class="notes">
-      Cierre en cuatro ideas. Si tuvieran que quedarse con una frase: el DFB paga complejidad
-      a cambio de pureza espectral, y esa pureza es lo que habilita telecom coherente, sensado
-      de gases y aplicaciones de defensa.
+      Cierre en cuatro ideas. La frase: el DFB paga complejidad a cambio de pureza espectral, y esa
+      pureza habilita telecom coherente, sensado de gases y aplicaciones de defensa.
     </aside>
   </section>
 
-  <!-- ============ 12 · REFERENCIAS ============ -->
-  <section>
-    <span class="eyebrow">Fuentes</span>
-    <h2>Referencias seleccionadas</h2>
-    <div class="divider"></div>
-    <div class="grid g2">
-      <ul class="tiny" style="font-size:.52em">
-        <li>INPHENIX — <em>Overview of DFB Laser: Types, Characteristics, Working & Applications</em></li>
-        <li>Fosco Connect — <em>DFB (Distributed Feedback) Semiconductor Lasers</em></li>
-        <li>Thorlabs — <em>Single-Frequency Lasers Tutorial</em></li>
-        <li>RP Photonics — <em>Coherence Length</em> · <em>Three/Four-level Gain Media</em></li>
-        <li>MKS / Newport — <em>Test and Characterization of Laser Diodes</em></li>
-      </ul>
-      <ul class="tiny" style="font-size:.52em">
-        <li>ISMRM — <em>Comparison of FP, VCSEL and DFB Laser Diodes</em></li>
-        <li>Bernard & Duraffourg (1961) — <em>Laser Conditions in Semiconductors</em></li>
-        <li>Optica — <em>Semiconductor Lasers</em> · <em>GaN-based laser diodes (temp.)</em></li>
-        <li>PMC — <em>InₓGa₁₋ₓAs/GaAs QD laser diodes</em></li>
-        <li>TOPTICA — <em>12 Orders of Coherence Control</em></li>
-      </ul>
-    </div>
-    <aside class="notes">Fuentes principales; el informe teórico tiene la lista completa de 40 referencias.</aside>
-  </section>
-
-  <!-- ============ 13 · CIERRE ============ -->
+  <!-- ============ 18 · CIERRE ============ -->
   <section class="section-hero" data-auto-animate>
     <span class="eyebrow">Optoelectrónica · FIE</span>
     <h1 class="title-grad">¿Preguntas?</h1>
@@ -982,7 +650,7 @@
       <div class="who"><strong>Ignacio Becerra</strong><span>Alumno</span></div>
       <div class="who"><strong>Juan Ignacio Goñe</strong><span>Alumno</span></div>
     </div>
-    <aside class="notes">Abrir a preguntas. Tener a mano: número de κL óptimo, valor de T0 y rango de coherencia del DFB.</aside>
+    <aside class="notes">Abrir a preguntas. Tener a mano: κL óptimo (1–2), T0≈290 K y rango de coherencia del DFB (10–130 m).</aside>
   </section>
 
   </div>
