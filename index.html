@@ -137,9 +137,12 @@
     .callout .small{ color:#f0dca0; }
 
     .twosplit{ display:grid; grid-template-columns:1fr 1fr; gap:22px; align-items:center; }
+    /* evita el "grid blowout": el canvas de Chart.js no debe agrandar su columna */
+    .twosplit > *, .grid > *{ min-width:0; }
     figure{ margin:0; }
     figcaption{ font-size:.5em; color:var(--muted); text-align:center; margin-top:6px; }
-    .chartbox{ background:rgba(0,0,0,.18); border:1px solid var(--line); border-radius:14px; padding:12px; }
+    .chartbox{ background:rgba(0,0,0,.18); border:1px solid var(--line); border-radius:14px; padding:12px; height:430px; min-width:0; position:relative; overflow:hidden; }
+    .chartbox canvas{ display:block; }
 
     .section-hero h1{ font-size:2.4em; }
     .section-hero .num{
@@ -695,22 +698,23 @@
   function buildSpectrum(){
     if (charts.spectrum) return;
     const ctx = document.getElementById('chartSpectrum'); if(!ctx) return;
-    const xs = []; for(let x=1545; x<=1555; x+=0.05) xs.push(+x.toFixed(2));
-    // FP: comb of modes under a gaussian envelope
-    const fpModes = [1546.6,1547.5,1548.4,1549.3,1550.2,1551.1,1552.0,1552.9,1553.8];
+    const xs = []; for(let x=1545; x<=1555; x+=0.02) xs.push(+x.toFixed(2));
+    const env = x => gauss(x,1550,2.0); // envolvente de ganancia
+    // FP: peine de modos longitudinales; la energía se REPARTE -> cada modo más bajo
+    const fpModes = [1546.4,1547.3,1548.2,1549.1,1550.0,1550.9,1551.8,1552.7,1553.6];
     const fp = xs.map(x=>{
-      let v=0; fpModes.forEach(m=> v+=gauss(x,m,0.10));
-      return +(v*gauss(x,1550.2,2.2)).toFixed(3);
+      let v=0; fpModes.forEach(m=> v+=gauss(x,m,0.07));
+      return +(0.6*v*env(x)).toFixed(3);
     });
-    // DFB: single sharp peak
-    const dfb = xs.map(x=> +gauss(x,1550.0,0.09).toFixed(3));
+    // DFB: un único modo; la energía se CONCENTRA -> pico dominante
+    const dfb = xs.map(x=> +gauss(x,1550.0,0.07).toFixed(3));
     charts.spectrum = new Chart(ctx, {
       type:'line',
       data:{ labels:xs, datasets:[
         { label:'Fabry-Perot (multimodo)', data:fp, borderColor:RED, backgroundColor:'rgba(255,93,108,.12)', borderWidth:2, pointRadius:0, tension:.25, fill:true },
         { label:'DFB (monomodo)', data:dfb, borderColor:CYAN, backgroundColor:'rgba(34,211,238,.18)', borderWidth:2.5, pointRadius:0, tension:.1, fill:true }
       ]},
-      options:{ responsive:true, animation:{duration:600},
+      options:{ responsive:false, maintainAspectRatio:false, animation:{duration:600},
         plugins:{ legend:{ labels:{ boxWidth:14, font:{size:12} } },
           title:{ display:true, text:'Potencia óptica vs longitud de onda (nm)', color:'#e9eef7' } },
         scales:{
@@ -731,7 +735,7 @@
         { label:'25 °C  (Ith≈15 mA)', data:li(15,0.085), borderColor:CYAN, borderWidth:2.5, pointRadius:0, tension:.05 },
         { label:'70 °C  (Ith≈32 mA)', data:li(32,0.060), borderColor:RED, borderWidth:2.5, pointRadius:0, tension:.05, borderDash:[6,4] }
       ]},
-      options:{ responsive:true, animation:{duration:600},
+      options:{ responsive:false, maintainAspectRatio:false, animation:{duration:600},
         plugins:{ legend:{ labels:{ boxWidth:14, font:{size:12} } },
           title:{ display:true, text:'Curva L-I: potencia (mW) vs corriente (mA)', color:'#e9eef7' } },
         scales:{
@@ -754,7 +758,7 @@
         { label:'T₀ = 120 K', data:curve(120), borderColor:GOLD, borderWidth:2, pointRadius:0, tension:.2, borderDash:[5,4] },
         { label:'T₀ = 290 K (estable)', data:curve(290), borderColor:CYAN, borderWidth:2.5, pointRadius:0, tension:.2 }
       ]},
-      options:{ responsive:true, animation:{duration:600},
+      options:{ responsive:false, maintainAspectRatio:false, animation:{duration:600},
         plugins:{ legend:{ labels:{ boxWidth:14, font:{size:12} } },
           title:{ display:true, text:'Umbral relativo Ith/Ith(20°C) vs temperatura', color:'#e9eef7' } },
         scales:{
@@ -764,15 +768,31 @@
     });
   }
 
+  // Tamaño manual basado en clientWidth/Height (NO afectados por el transform de escala de reveal,
+  // a diferencia de getBoundingClientRect que usa el modo responsive de Chart.js -> evita el desborde).
+  function fitChart(c){
+    if(!c || !c.canvas) return;
+    const box = c.canvas.closest('.chartbox');
+    if(!box) return;
+    const cs = getComputedStyle(box);
+    const w = box.clientWidth  - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight);
+    const h = box.clientHeight - parseFloat(cs.paddingTop)  - parseFloat(cs.paddingBottom);
+    if(w > 0 && h > 0) c.resize(w, h);
+  }
+  function resizeAll(){ Object.values(charts).forEach(fitChart); }
+
   function renderChartsFor(slide){
     if(!slide) return;
     if (slide.querySelector('#chartSpectrum')) buildSpectrum();
     if (slide.querySelector('#chartLI')) buildLI();
     if (slide.querySelector('#chartT0')) buildT0();
+    requestAnimationFrame(resizeAll);
   }
 
   Reveal.on('ready', e => renderChartsFor(e.currentSlide));
-  Reveal.on('slidechanged', e => renderChartsFor(e.currentSlide));
+  Reveal.on('slidechanged', e => { renderChartsFor(e.currentSlide); setTimeout(resizeAll, 350); });
+  Reveal.on('slidetransitionend', resizeAll);
+  window.addEventListener('resize', resizeAll);
 </script>
 </body>
 </html>
